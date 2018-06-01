@@ -1,10 +1,10 @@
 #### High Availability Installation
 > This document is based on rancher setup from [rancher docs ](https://rancher.com/docs/rancher/v2.x/en/installation/ha-server-install/#option-b-certificate-signed-by-a-recognized-certificate-authority)
 >
-This set of instructions creates a new Kubernetes cluster that’s dedicated to running Rancher in a high-availability (HA) configuration. This procedure walks you through setting up a 5-node cluster using the Rancher Kubernetes Engine (RKE). The cluster’s sole purpose is running pods for Rancher. The setup is based on:
+This set of instructions creates a new Kubernetes cluster that’s dedicated to running Rancher in a high-availability (HA) configuration. This procedure walks you through setting up a [5-node cluster](https://github.com/trosvald/holding-config/blob/master/kubernetes/node-prep.md) using the Rancher Kubernetes Engine (RKE). The cluster’s sole purpose is running pods for Rancher. The setup is based on:
 
-- Layer 4 Loadbalancer (TCP)
-- NGINX Ingress controller with SSL termination (HTTPS)
+- Layer 4 Loadbalancer (TCP) we are using ```HAProxy``` as our reverse and ```ssl``` termination.
+- ```NGINX``` Ingress controller with SSL termination (HTTPS)
 
 ![alt text](https://rancher.com/docs/img/rancher/ha/rancher2ha.svg "topology")
 
@@ -37,7 +37,7 @@ After you’ve completed configuration of the config file template, back the con
 > i. [Backup Your YAML File](https://github.com/trosvald/holding-config/blob/master/kubernetes/rke/rke-ha-09.md)
 >
 Run RKE to deploy Rancher to your cluster.
-> j. [Run RKE](https://github.com/trosvald/holding-config/blob/master/kubernetes/rke/rke-ha-10.md) 
+> j. [Run RKE](https://github.com/trosvald/holding-config/blob/master/kubernetes/rke/rke-ha-10.md)
 >
 During installation, RKE generates a config file that you’ll use later for upgrades. Back it up to a safe location.
 > k. [Backup Config File](https://github.com/trosvald/holding-config/blob/master/kubernetes/rke/rke-ha-11.md)
