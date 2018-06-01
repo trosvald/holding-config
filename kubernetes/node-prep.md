@@ -7,7 +7,7 @@
 sudo apt-get upgrade -y && sudo apt-get install qemu-guest-agent -y && sudo shutdown -r now
 ```
 
-1. Wipe disk(s) used for docker-storage and glusterfs Node(s) :
+2. Wipe disk(s) used for docker-storage and glusterfs Node(s) :
 
   **a. node oso-master.mpti.co.id**
 
@@ -74,7 +74,6 @@ mptadmin@oso-master:~$ sudo dd if=/dev/zero of=/dev/sdb bs=512 count=1
   sr0                     11:0    1  825M  0 rom
   ```
 used **/dev/sdc** as docker storage and **/dev/sdb** as glusterfs , we need to wipe the disk(s)
-
     ```
     mptadmin@oso-n0:~$ sudo dd if=/dev/zero of=/dev/sdb bs=512 count=1
     [sudo] password for mptadmin:
@@ -87,3 +86,22 @@ used **/dev/sdc** as docker storage and **/dev/sdb** as glusterfs , we need to w
     512 bytes copied, 0.0372588 s, 13.7 kB/s
     mptadmin@oso-n0:~$
     ```
+#### Setup passwordless SUDO
+      a. Use visudo to create and edit
+      ```
+      sudo visudo -f /etc/sudoers.d/custom-users
+
+      ```
+      b. Configure No sudo Password Prompts, add this line and change **username**
+      ```
+      # This configuration will silence password prompts when sudo is used
+      # For documentation visit build business websites and search on sudoer
+
+      <<username>> ALL=(ALL) NOPASSWD:ALL
+      ```
+      c. Save and Exit Visudo
+      d. Relogin shell and check
+      ```
+      sudo date
+      ```
+      you should not asked to provide password and good to go
