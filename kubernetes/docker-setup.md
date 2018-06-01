@@ -119,6 +119,7 @@ $ sudo vi /etc/lvm/profile/docker-thinpool.profile
 }
   ```
   Save the file
+
 10. Apply the LVM profile, using the ```lvchange``` command.
 ```
 $ sudo lvchange --metadataprofile docker-thinpool docker/thinpool
@@ -134,6 +135,7 @@ $ mkdir /var/lib/docker.bk
 $ mv /var/lib/docker/* /var/lib/docker.bk
 ```
 If any of the following steps fail and you need to restore, you can remove ```/var/lib/docker``` and replace it with ```/var/lib/docker.bk```.
+
 13. Edit ```/etc/docker/daemon.json``` and configure the options needed for the ```devicemapper``` storage driver. If the file was previously empty, it should now contain the following contents:
 ```
 {
