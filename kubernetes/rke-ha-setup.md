@@ -1,4 +1,5 @@
 #### High Availability Installation
+> This document is based on rancher setup from [rancher docs ](https://rancher.com/docs/rancher/v2.x/en/installation/ha-server-install/#option-b-certificate-signed-by-a-recognized-certificate-authority)
 
 This set of instructions creates a new Kubernetes cluster that’s dedicated to running Rancher in a high-availability (HA) configuration. This procedure walks you through setting up a 5-node cluster using the Rancher Kubernetes Engine (RKE). The cluster’s sole purpose is running pods for Rancher. The setup is based on:
 
