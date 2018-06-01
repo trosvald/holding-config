@@ -14,6 +14,7 @@ oso-n2.mpti.co.id             192.168.11.25/24      [controller,worker]
 
 Node : oso-master.mpti.co.id
 ```
+- Ubuntu 16.04 LTS
 - 16GB RAM, 4 vCPU
 /dev/sda          80Gi
 /dev/sdb          100Gi         docker-storage
@@ -21,6 +22,7 @@ Node : oso-master.mpti.co.id
 
 Node : oso-infra.mpti.co.id
 ```
+- Ubuntu 16.04 LTS
 - 12GB RAM, 4 vCPU
 /dev/sda          80Gi
 /dev/sdb          100Gi         docker-storage
@@ -28,6 +30,7 @@ Node : oso-infra.mpti.co.id
 
 Node : oso-n0.mpti.co.id, oso-n1.mpti.co.id, oso-n2.mpti.co.id
 ```
+- Ubuntu 16.04 LTS
 - 10GB RAM 4 vCPU
 /dev/sda          80Gi
 /dev/sdb          200Gi         glusterfs
