@@ -6,7 +6,7 @@ Before you install Rancher, confirm you meet the host requirements. Provision 5 
 
 - Ubuntu 16.04 (64-bit)
 - Red Hat Enterprise Linux 7.5 (64-bit)
-- RancherOS 1.3.0 (64-bit)
+- RancherOS 1.3.0 (64-bit)ß
 
 **Hardware Requirements**
 
