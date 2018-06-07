@@ -1,0 +1,9 @@
+apiVersion: storage.k8s.io/v1beta1
+kind: StorageClass
+metadata:
+  name: glusterfs-persistent
+  annotations:
+    storageclass.beta.kubernetes.io/is-default-class: "true"
+provisioner: kubernetes.io/glusterfs
+parameters:
+  resturl: "http://10.233.112.5:8080"

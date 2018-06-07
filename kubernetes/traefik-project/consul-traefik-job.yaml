@@ -1,0 +1,24 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: traefik-boostrap
+  namespace: kube-system
+spec:
+  template:
+    metadata:
+      name: traefik-boostrap
+    spec:
+      containers:
+      - image: traefik:v1.3-alpine
+        name: traefik-bootstrap
+        args:
+        - storeconfig
+        - --configfile=/etc/traefik/traefik.toml
+        volumeMounts:
+        - name: traefik-config
+          mountPath: /etc/traefik
+      restartPolicy: Never
+      volumes:
+      - name: traefik-config
+        configMap:
+          name: traefik

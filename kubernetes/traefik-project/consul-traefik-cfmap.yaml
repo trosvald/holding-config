@@ -1,0 +1,53 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: traefik
+  namespace: kube-system
+data:
+  traefik.toml: |-
+    checkNewVersion = false
+    IdleTimeout = "180s"
+    MaxIdleConnsPerHost = 500
+    logLevel = "INFO"
+    defaultEntryPoints = ["http", "https"]
+
+    [retry]
+    attempts = 3
+
+    [web]
+    address = ":8081"
+
+    [kubernetes]
+    endpoint = "http://localhost:8080"
+    namespaces = ["default"]
+
+    [consul]
+    endpoint = "consul:8500"
+    watch = true
+    prefix = "traefik"
+
+    [acme]
+    email = "eko.purwanto@mpti.co.id"
+    storage = "traefik/acme/account"
+    entryPoint = "https"
+    OnHostRule = true
+    onDemand = true
+    acmeLogging = true
+    #caServer = "https://acme-staging.api.letsencrypt.org/directory"
+
+    [[acme.domains]]
+       main = "cloudapps.mpti.co.id"
+
+    [entryPoints]
+      [entryPoints.http]
+      address = ":80"
+      compress = true
+        [entryPoints.http.redirect]
+        entryPoint = "https"
+      [entryPoints.https]
+      address = ":443"
+        [entryPoints.https.tls]
+  resolv.conf: |-
+    nameserver 10.233.0.3
+    search kube-system.svc.cluster.local svc.cluster.local cluster.local
+    options ndots:5
