@@ -1,0 +1,19 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+ name: traefik-ingress
+ namespace: default
+spec:
+  rules:
+  - host: nodejs-app.mpti.co.id
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: nodejs-app-svc
+          servicePort: 80
+  tls:
+  - hosts:
+    - nodejs-app.mpti.co.id 
+    secretName: traefik-cert

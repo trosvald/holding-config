@@ -6,4 +6,4 @@ metadata:
     storageclass.beta.kubernetes.io/is-default-class: "true"
 provisioner: kubernetes.io/glusterfs
 parameters:
-  resturl: "http://10.233.112.5:8080"
+  resturl: "http://10.233.96.7:8080"
