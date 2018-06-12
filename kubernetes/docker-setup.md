@@ -93,11 +93,7 @@ Logical volume "thinpoolmeta" created.
 ```
 7. Convert the volumes to a thin pool and a storage location for metadata for the thin pool, using the ```lvconvert``` command.
 ```
-$ sudo lvconvert -y \
---zero n \
--c 512K \
---thinpool docker/thinpool \
---poolmetadata docker/thinpoolmeta
+$ sudo lvconvert -y --zero n -c 512K --thinpool docker/thinpool --poolmetadata docker/thinpoolmeta
 ```
 >WARNING: Converting logical volume docker/thinpool and docker/thinpoolmeta to thin pool's data and metadata volumes with metadata wiping. THIS WILL DESTROY CONTENT OF LOGICAL VOLUME (filesystem etc.) Converted docker/thinpool to thin pool.
 >

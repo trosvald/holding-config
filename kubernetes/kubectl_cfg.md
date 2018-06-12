@@ -1,4 +1,4 @@
-### Config for api access in kubernetes 
+### Config for api access in kubernetes
 
 It's pretty 'simple' - once cargo is done you want to grab these from the master:
 ```
@@ -24,3 +24,4 @@ kubectl config set-credentials default-admin \
 kubectl config set-context default-system --cluster=default-cluster --user=default-admin
 kubectl config use-context default-system
 ```
+bRqqCYaT4ro749YF2z7zad4uKFv2qp5t
